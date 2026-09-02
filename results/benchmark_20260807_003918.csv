@@ -1,0 +1,4 @@
+﻿batch_id,rank,model,score,pass_rate,passed,tasks_total,ttft_s,total_s,out_tokens,ok,error
+20260807-8154,1,hy3,95.0,0.929,13,14,0.78,1.78,,True,
+20260807-8154,2,deepseek-v4-flash,73.7,0.714,10,14,1.04,4.4,372,True,
+20260807-8154,3,kimi-k3,50.0,0.714,10,14,2.05,14.24,,True,

@@ -1,0 +1,165 @@
+# =============================================================================
+# TokenHub × LiteLLM 全量网关配置
+# 作用：把腾讯云 TokenHub 的 25 款模型统一暴露为 Anthropic Messages 协议，
+#       让 Claude Code / 任意 Anthropic 客户端用 /model 一键切换全部模型。
+#
+# 前置：
+#   1) pip install 'litellm[proxy]'
+#   2) 导出环境变量（务必用环境变量，别把真实 Key 写进文件/仓库）：
+#        export TOKENHUB_API_KEY="你的TokenHub_API_Key"
+#        export LITELLM_MASTER_KEY="自己随便写一段强随机串，例如 openssl rand -hex 16"
+#   3) 启动： litellm --config tokenhub_litellm_config.yaml --port 4000
+#   4) Claude Code 指向网关：
+#        export ANTHROPIC_BASE_URL="http://localhost:4000"
+#        export ANTHROPIC_AUTH_TOKEN="$LITELLM_MASTER_KEY"
+#        export ANTHROPIC_API_KEY=""          # 必须清空，防回退官方
+#        claude --model hy3
+#
+# ⚠️ 模型名核对：api_name 列基于官方文档推断。凡标 [核对] 的，请到
+#    TokenHub 控制台「API 调用」页复制真实 model 字符串后替换，避免 404。
+# =============================================================================
+
+model_list:
+  # ---- 腾讯混元 Hy ----
+  - model_name: hy3
+    litellm_params:
+      model: openai/hy3
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+  # ---- Kimi (月之暗面) ----
+  - model_name: kimi-k3
+    litellm_params:
+      model: openai/kimi-k3
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: kimi-k2.7-code
+    litellm_params:
+      model: openai/kimi-k2.7-code
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: kimi-k2.7-code-highspeed   # [核对] HighSpeed 变体名以控制台为准
+    litellm_params:
+      model: openai/kimi-k2.7-code-highspeed
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: kimi-k2.6
+    litellm_params:
+      model: openai/kimi-k2.6
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: kimi-k2.5
+    litellm_params:
+      model: openai/kimi-k2.5
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+  # ---- MiniMax ----
+  - model_name: minimax-m3
+    litellm_params:
+      model: openai/minimax-m3
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: minimax-m2.7
+    litellm_params:
+      model: openai/minimax-m2.7
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+  # ---- DeepSeek ----
+  - model_name: deepseek-v4-pro-202606     # [核对] 原厂直供版
+    litellm_params:
+      model: openai/deepseek-v4-pro-202606
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: deepseek-v4-flash           # [核对] 正式版
+    litellm_params:
+      model: openai/deepseek-v4-flash
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: deepseek-v4-pro
+    litellm_params:
+      model: openai/deepseek-v4-pro
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: deepseek-v4-flash-202605    # [核对] 原厂直供版
+    litellm_params:
+      model: openai/deepseek-v4-flash-202605
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+  # ---- 智谱 GLM ----
+  - model_name: glm-5.1
+    litellm_params:
+      model: openai/glm-5.1
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: glm-5.2
+    litellm_params:
+      model: openai/glm-5.2
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: glm-5
+    litellm_params:
+      model: openai/glm-5
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: glm-5-turbo
+    litellm_params:
+      model: openai/glm-5-turbo
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: glm-5v-turbo
+    litellm_params:
+      model: openai/glm-5v-turbo
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+  # ---- 腾讯翻译 Hy-MT2 ----
+  - model_name: hy-mt2-pro      # [核对]
+    litellm_params:
+      model: openai/hy-mt2-pro
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: hy-mt2-lite     # [核对]
+    litellm_params:
+      model: openai/hy-mt2-lite
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: hy-mt2-plus
+    litellm_params:
+      model: openai/hy-mt2-plus
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+  # ---- 其它 ----
+  - model_name: mimo-v2.5-pro   # [核对]
+    litellm_params:
+      model: openai/mimo-v2.5-pro
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: hy-role-latest  # [核对]
+    litellm_params:
+      model: openai/hy-role-latest
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: hy-role         # [核对]
+    litellm_params:
+      model: openai/hy-role
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: qwen3.5-flash   # [核对]
+    litellm_params:
+      model: openai/qwen3.5-flash
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+  - model_name: qwen3.5-plus    # [核对]
+    litellm_params:
+      model: openai/qwen3.5-plus
+      api_base: https://tokenhub.tencentmaas.com/v1
+      api_key: os.environ/TOKENHUB_API_KEY
+
+litellm_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  # 可选：开启后网关会在 /v1/models 暴露全部模型，Claude Code 里 /model 直接列出
+  # drop_params: true

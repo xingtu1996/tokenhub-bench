@@ -15,28 +15,30 @@ python3 tokenhub_bench.py --model A --model B --task coding
 python3 tokenhub_minigate.py   # 轻量版
 ```
 
-## 📊 能力
+## 能力
 
 - 多模型横向对比（质量 / 速度 / Token 消耗）
-- 可复现：固定 prompt 集 + 固定指标
-- 输出结构化对比报告
+- 可复现：固定 prompt 集 + 固定指标 + 自动判分
+- 输出结构化对比报告（CSV）
 
-## 📄 许可证
+## 已含内容
+
+| 文件 | 说明 |
+|------|------|
+| bench/tokenhub_bench.py | 评测引擎：多模型 × 多任务，自动判分 |
+| bench/tokenhub_minigate.py | 轻量网关代理（多模型路由）|
+| bench/tokenhub_litellm_config.yaml | litellm 配置示例（key 走环境变量）|
+| results/benchmark_*.csv | 真实评测结果样例（hy3 / deepseek-v4-flash / kimi-k3 等）|
+
+> 评测结果样例：hy3 编码 95 分、deepseek-v4-flash 73.7 分、kimi-k3 50 分（pass_rate / ttft / 输出 token 均有记录）——直接用于模型选型参考。
+
+## 目录结构
+
+```
+bench/       # 评测引擎 + 配置
+results/     # 评测结果（CSV）
+```
+
+## 许可证
 
 MIT License
-
----
-
-> AI 辅助创作 · 内容基于真实工程实践
-
-## 📁 目录结构
-
-```
-bench/       # 评测任务与基准
-results/     # 评测结果
-```
-
-## 🗺 Roadmap
-
-- [ ] 评测任务集 + 指标定义
-- [ ] 首批模型对比结果

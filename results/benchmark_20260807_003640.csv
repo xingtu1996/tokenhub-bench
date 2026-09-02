@@ -1,0 +1,4 @@
+﻿batch_id,rank,model,score,pass_rate,passed,tasks_total,ttft_s,total_s,out_tokens,ok,error
+20260807-c2fc,1,deepseek-v4-flash,30.0,0.0,0,14,,9.89,901,True,
+20260807-c2fc,2,kimi-k3,0.0,,,,,,,False,"HTTP 400: {""error"":{""type"":""invalid_request_error"",""code"":""400001"",""message"":""The request is invalid: invalid temperature: only 1 is allowed for this model. Please check "
+20260807-c2fc,3,hy3,0.0,,,,,,,False,too many values to unpack (expected 2)
