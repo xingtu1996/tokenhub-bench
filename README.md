@@ -4,6 +4,11 @@
 
 ![MIT](https://img.shields.io/badge/license-MIT-green.svg)
 
+## 📖 延伸阅读
+
+- [省 token 的第一性原理](https://github.com/xingtu1996/xingtu-articles/blob/main/articles/2026/08/2026-08-28-save-token-first-principle.md)
+- [省 token 横评：9 个主流编程 Agent 谁最省 token](https://github.com/xingtu1996/xingtu-articles/blob/main/articles/2026/09/2026-09-22-token-benchmark-9-coding-agents.md)
+
 ## 🎯 这是什么
 
 `tokenhub-bench` 是行途开源矩阵的**模型评测资产**。提供可复现的 LLM 能力对比基准——在同一套任务、同一套指标下横向评测多模型，输出量化对比结果。
