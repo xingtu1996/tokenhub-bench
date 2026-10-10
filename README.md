@@ -8,6 +8,7 @@
 
 - [省 token 的第一性原理](https://github.com/xingtu1996/xingtu-articles/blob/main/articles/2026/08/2026-08-28-save-token-first-principle.md)
 - [省 token 横评：9 个主流编程 Agent 谁最省 token](https://github.com/xingtu1996/xingtu-articles/blob/main/articles/2026/09/2026-09-22-token-benchmark-9-coding-agents.md)
+- [AI 编程贵，八成是浪费](https://github.com/xingtu1996/xingtu-articles/blob/main/articles/2026/10/2026-10-10-ai-coding-half-is-waste.md)
 
 ## 🎯 这是什么
 
