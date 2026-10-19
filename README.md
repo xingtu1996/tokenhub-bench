@@ -12,7 +12,7 @@
 
 ## 🎯 这是什么
 
-`tokenhub-bench` 是行途开源矩阵的**模型评测资产**。提供可复现的 LLM 能力对比基准——在同一套任务、同一套指标下横向评测多模型，输出量化对比结果。
+`tokenhub-bench` 是行途技术开源矩阵的**模型评测资产**。提供可复现的 LLM 能力对比基准——在同一套任务、同一套指标下横向评测多模型，输出量化对比结果。
 
 ## 🚀 快速开始
 
@@ -51,8 +51,8 @@ MIT License
 
 ---
 
-## 关于作者 · 行途
+## 关于作者 · 行途技术
 
-- 公众号「行途 XingTu」（长文首发，微信搜索关注）
+- 公众号「行途技术」（长文首发，微信搜索关注）
 - GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
 - 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
